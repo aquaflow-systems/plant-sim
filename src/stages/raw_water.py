@@ -20,7 +20,6 @@ class RawWaterStage:
         self.intake_pump_speed = max(0.0, min(100.0, value))
 
     def outflow_lpm(self) -> float:
-        """Flow handed to the dosing stage. Capped by what the tank can supply."""
         if self.tank_level <= 0:
             return 0.0
         return NOMINAL_DEMAND_LPM

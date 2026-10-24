@@ -20,7 +20,6 @@ class DisinfectionStage:
         self.chlorine_dose = max(0.0, value)
 
     def _effectiveness(self, upstream_ph: float) -> float:
-        """0-1 multiplier on how well the chlorine dose actually works."""
         distance_from_neutral = abs(7.0 - upstream_ph)
         penalty = min(0.9, distance_from_neutral * 0.35)
         return max(0.1, 1.0 - penalty)
